@@ -5,7 +5,7 @@ import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../
 
 const app = new cdk.App();
 new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
-  dbName: '<existing-rds-database-name>',
+  dbName: 'dev',
   rdsEvents:
     [
       {
@@ -22,5 +22,5 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
       }
 
     ],
-  s3BucketName: '<desired-s3-bucket-name>',
+  s3BucketName: 's3-rdssnapshots-testbuckets',
 });
