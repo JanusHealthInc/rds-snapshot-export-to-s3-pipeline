@@ -11,7 +11,16 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
       {
         rdsEventId: RdsEventId.DB_AUTOMATED_SNAPSHOT_CREATED,
         rdsSnapshotType: RdsSnapshotType.DB_AUTOMATED_SNAPSHOT
+      },
+      {
+        rdsEventId: RdsEventId.DB_MANUAL_SNAPSHOT_CREATED,
+        rdsSnapshotType: RdsSnapshotType.DB_BACKUP_SNAPSHOT
+      },
+      {
+        rdsEventId: RdsEventId.DB_BACKUP_SNAPSHOT_FINISHED_COPY,
+        rdsSnapshotType: RdsSnapshotType.DB_BACKUP_SNAPSHOT
       }
+
     ],
   s3BucketName: '<desired-s3-bucket-name>',
 });
