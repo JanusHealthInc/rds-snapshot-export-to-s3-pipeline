@@ -14,7 +14,7 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipesline', {
       },
       {
         rdsEventId: RdsEventId.DB_MANUAL_SNAPSHOT_CREATED,
-        rdsSnapshotType: RdsSnapshotType.DB_BACKUP_SNAPSHOT
+        rdsSnapshotType: RdsSnapshotType.DB_MANUAL_SNAPSHOT
       },
       {
         rdsEventId: RdsEventId.DB_BACKUP_SNAPSHOT_FINISHED_COPY,
