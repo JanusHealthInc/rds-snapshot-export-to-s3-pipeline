@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../lib/rds-snapshot-export-pipeline-stack';
 
 const app = new cdk.App();
-new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipesline', {
+new RdsSnapshotExportPipelineStack(app, 'vamon-RdsSnapshotExportToS3Pipesline', {
   dbName: 'dev-visionxdb-cluster',
   rdsEvents:
     [
@@ -22,7 +22,7 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipesline', {
       }
 
     ],
-  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-2',
+  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-vamon',
 });
 
 
