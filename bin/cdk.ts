@@ -4,9 +4,10 @@ import * as cdk from 'aws-cdk-lib';
 import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../lib/rds-snapshot-export-pipeline-stack';
 
 const app = new cdk.App();
-new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
-  dbName: 'dev',
+new RdsSnapshotExportPipelineStack(app, 'VN-RdsSnapshotExportToS3Pipesline', {
+  dbName: 'dev-observe-database',
   rdsEvents:
+
     [
       {
         rdsEventId: RdsEventId.DB_AUTOMATED_SNAPSHOT_CREATED,
@@ -14,7 +15,7 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
       },
       {
         rdsEventId: RdsEventId.DB_MANUAL_SNAPSHOT_CREATED,
-        rdsSnapshotType: RdsSnapshotType.DB_BACKUP_SNAPSHOT
+        rdsSnapshotType: RdsSnapshotType.DB_MANUAL_SNAPSHOT
       },
       {
         rdsEventId: RdsEventId.DB_BACKUP_SNAPSHOT_FINISHED_COPY,
@@ -22,6 +23,7 @@ new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
       }
 
     ],
-  s3BucketName: 's3-rdssnapshots-testbuckets',
+  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-VN',
 });
+
 
