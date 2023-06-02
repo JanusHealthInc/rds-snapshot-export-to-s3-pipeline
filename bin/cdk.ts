@@ -23,7 +23,7 @@ new RdsSnapshotExportPipelineStack(app, 'VN-RdsSnapshotExportToS3Pipesline', {
       }
 
     ],
-  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-VN', 
+  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-vn', 
 });
 
 
