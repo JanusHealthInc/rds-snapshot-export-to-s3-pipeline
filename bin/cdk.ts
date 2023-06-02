@@ -14,10 +14,6 @@ new RdsSnapshotExportPipelineStack(app, 'VN-RdsSnapshotExportToS3Pipesline', {
         rdsSnapshotType: RdsSnapshotType.DB_AUTOMATED_SNAPSHOT
       },
       {
-        rdsEventId: RdsEventId.DB_AUTOMATED_AURORA_SNAPSHOT_CREATED,
-        rdsSnapshotType: RdsSnapshotType.DB_AUTOMATED_SNAPSHOT
-      },
-      {
         rdsEventId: RdsEventId.DB_MANUAL_SNAPSHOT_CREATED,
         rdsSnapshotType: RdsSnapshotType.DB_MANUAL_SNAPSHOT
       },
@@ -27,7 +23,7 @@ new RdsSnapshotExportPipelineStack(app, 'VN-RdsSnapshotExportToS3Pipesline', {
       }
 
     ],
-  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-VN',
+  s3BucketName: 'janus-s3-rdssnapshots-testbucketstest-VN', 
 });
 
 
