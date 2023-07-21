@@ -5,7 +5,7 @@ import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../
 
 const app = new cdk.App();
 new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipesline-Test-vamon', {
-  dbName: 'dev-visionxdb-cluster',
+  dbName: 'dev-visionxdb-cluster, dev',
   rdsEvents:
     [
       {
