@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../lib/rds-snapshot-export-pipeline-stack';
 
 const app = new cdk.App();
-new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3-ds-team-rds-cluster ', {
+new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3-ds-team-rds-cluster', {
   dbName: 'ds-team-rds-cluster',
   rdsEvents:
     [
