@@ -4,14 +4,27 @@ import * as cdk from 'aws-cdk-lib';
 import { RdsSnapshotExportPipelineStack, RdsEventId, RdsSnapshotType } from '../lib/rds-snapshot-export-pipeline-stack';
 
 const app = new cdk.App();
-new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3Pipeline', {
-  dbName: '<existing-rds-database-name>',
+new RdsSnapshotExportPipelineStack(app, 'RdsSnapshotExportToS3-upgrade-testing-cluster', {
+  dbName: 'upgrade-testing-cluster',
   rdsEvents:
     [
       {
         rdsEventId: RdsEventId.DB_AUTOMATED_SNAPSHOT_CREATED,
         rdsSnapshotType: RdsSnapshotType.DB_AUTOMATED_SNAPSHOT
+      },
+      {
+        rdsEventId: RdsEventId.DB_MANUAL_SNAPSHOT_CREATED,
+        rdsSnapshotType: RdsSnapshotType.DB_MANUAL_SNAPSHOT
+      },
+      {
+        rdsEventId: RdsEventId.DB_BACKUP_SNAPSHOT_FINISHED_COPY,
+        rdsSnapshotType: RdsSnapshotType.DB_BACKUP_SNAPSHOT
+      },
+      {
+        rdsEventId: RdsEventId.DB_AUTOMATED_AURORA_SNAPSHOT_CREATED,
+        rdsSnapshotType: RdsSnapshotType.DB_AUTOMATED_SNAPSHOT
       }
+
     ],
-  s3BucketName: '<desired-s3-bucket-name>',
+  s3BucketName: 'janus-s3-upgrade-testing-cluster',
 });
